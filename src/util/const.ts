@@ -1,0 +1,1 @@
+export  const regex: string = "/^[a-zA-Z0-9!@#$%^&*)(+=._-]+$/g";
