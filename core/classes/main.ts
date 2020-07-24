@@ -10,11 +10,11 @@ class Main {
     this.input = input;
   }
 
-  setInput(x: string): void {
+  private setInput(x: string): void {
     this.input = x;
   }
 
-  setScore(plus?: number) {
+  private setScore(plus?: number): number {
     if (plus > 0) {
       this.score + plus;
     }
@@ -22,6 +22,10 @@ class Main {
       this.score - plus;
     }
     return this.score;
+  }
+
+  validate(arg: string) {
+    return false;
   }
   hasSpecialChar(arg: string) {
     const regex: string = "/^[a-zA-Z0-9!@#$%^&*)(+=._-]+$/g";
@@ -59,6 +63,5 @@ class Main {
       return this.setScore(2);
     }
     return this.setScore(-1);
-
   }
 }
