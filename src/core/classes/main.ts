@@ -24,7 +24,14 @@ export class Main {
     return this.score;
   }
 
+  private getScore(): number {
+    return this.score;
+  }
+
   validate(arg: string) {
+    if (arg) {
+      return true;
+    }
     return false;
   }
   hasSpecialChar(arg: string) {
@@ -39,6 +46,7 @@ export class Main {
   convertToArray(arg: string) {
     return arg.split("");
   }
+  // make this function to do all the checking things
   hasNumber(arg: string) {
     let count: number = 0;
     const array = this.convertToArray(arg);
@@ -63,5 +71,22 @@ export class Main {
       return this.setScore(2);
     }
     return this.setScore(-1);
+  }
+  simple(arg: string) {
+    if (this.validate(arg)) {
+      this.basicPasswordLength(arg);
+      return this.getScore();
+    }
+    return -1;
+  }
+
+  basic(arg: string) {
+    if (!this.validate(arg)) {
+      return -1;
+    }
+    this.basicPasswordLength(arg);
+    this.hasNumber(arg);
+    this.hasSpecialChar(arg);
+    return this.getScore();
   }
 }
