@@ -1,4 +1,4 @@
-class Main {
+export class Main {
   input: string;
   score: number = 0;
   // basic password length  p >6 = 1
@@ -6,7 +6,7 @@ class Main {
   // numbers = 1
   // comman password = -1
 
-  constructor(input?: string) {
+  constructor(input: string) {
     this.input = input;
   }
 
@@ -14,7 +14,7 @@ class Main {
     this.input = x;
   }
 
-  private setScore(plus?: number): number {
+  private setScore(plus: number): number {
     if (plus > 0) {
       this.score + plus;
     }
