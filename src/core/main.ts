@@ -1,3 +1,4 @@
+import { regex } from "../util/const";
 export class Main {
   input: string;
   score: number = 0;
@@ -35,7 +36,6 @@ export class Main {
     return false;
   }
   hasSpecialChar(arg: string) {
-    const regex: string = "/^[a-zA-Z0-9!@#$%^&*)(+=._-]+$/g";
     if (arg.search(regex) > 0) {
       return this.setScore(1);
     } else if (arg.search(regex) > 2) {
@@ -64,6 +64,7 @@ export class Main {
     return this.setScore(-1);
   }
 
+  //  main methods
   basicPasswordLength(arg: string) {
     if (this.convertToArray(arg).length > 6) {
       return this.setScore(1);
@@ -78,6 +79,12 @@ export class Main {
       return this.getScore();
     }
     return -1;
+  }
+  advance(arg: string, email: string, name: string) {
+    this.basic(arg);
+    //  then do check advance checks
+    // ...
+    return this.getScore();
   }
 
   basic(arg: string) {
